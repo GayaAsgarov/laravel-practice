@@ -17,11 +17,3 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
-
-Artisan::command('test-command', function () {
-    echo "Custom console command";
-});
-
-// Artisan::command('sql-query', function () {
-//     DB::statement('your query');
-// })->description("to execute query");

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/users', function () {
-//     return "This is users page";
+// Route::get('/student', function () {
+//     $name = "John";
+//     $student_array = array(
+//         'name' => 'David',
+//         'email' => 'david@email.com'
+//     );
+//     return view('student', compact('name', 'student_array'));
 // });
 
-Route::get('/users/{name?}', function ($name = NULL) {
-    return "This is " . $name;
-});
+Route::get('/student', [StudentController::class, 'list']);
 
-Route::get('/student/{name?}', function ($name = NULL) {
-    return "This is " . $name;
-});
+// Route::get('/home/{name?}', [HomeController::class, 'index']);
+// Route::get('/blog', [HomeController::class, 'blog']);
 
-Route::match(['get', 'post'], '/match', function () {
-    return "This is match route";
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home/{name?}', 'index');
+    Route::get('/blog', 'blog');
 });
