@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('students', [StudentController::class, 'index']);
+
 // Route::get('/users', function () {
 //     return "This is users page";
 // });
 
-Route::get('/users/{name?}', function ($name = NULL) {
-    return "This is " . $name;
-});
+// Route::get('/users/{name?}', function ($name = NULL) {
+//     return "This is " . $name;
+// });
 
-Route::get('/student/{name?}', function ($name = NULL) {
-    return "This is " . $name;
-});
+// Route::get('/student/{name?}', function ($name = NULL) {
+//     return "This is " . $name;
+// });
 
-Route::match(['get', 'post'], '/match', function () {
-    return "This is match route";
-});
+// Route::match(['get', 'post'], '/match', function () {
+//     return "This is match route";
+// });
