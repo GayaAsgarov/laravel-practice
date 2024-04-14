@@ -20,6 +20,10 @@ Route::get('/', function () {
 
 Route::get('students', [StudentController::class, 'index']);
 
+Route::get('inner-join', [StudentController::class, 'innerJoin']);
+Route::get('left-join', [StudentController::class, 'leftJoin']);
+Route::get('right-join', [StudentController::class, 'rightJoin']);
+
 // Route::get('/users', function () {
 //     return "This is users page";
 // });
